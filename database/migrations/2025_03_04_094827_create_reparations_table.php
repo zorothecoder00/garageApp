@@ -16,6 +16,11 @@ return new class extends Migration
             $table->string("date");
             $table->string("duree_main_oeuvre");
             $table->text("objet_reparation"); 
+
+             // Ajout des clés étrangères pour la relation
+            $table->foreignId('vehicule_id')->constrained()->onDelete('cascade');  // Cette ligne ajoute vehicule_id et la contrainte
+            $table->foreignId('technicien_id')->constrained()->onDelete('cascade'); // Cette ligne ajoute technicien_id et la contrainte
+        
             $table->timestamps();
         });
     }

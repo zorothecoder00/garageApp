@@ -37,7 +37,7 @@ class VehiculeController extends Controller
         ]);
 
         //Création du véhicule
-        $vehicule = Vehicule::create($validated);
+        $vehicule = Vehicule::create($validated);       
 
         // Redirection vers la liste des véhicules
         return redirect()->route('vehicules')->with('success' ,'Véhicule ajouté avec succès');

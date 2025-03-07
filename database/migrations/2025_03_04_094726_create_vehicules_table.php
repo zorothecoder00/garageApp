@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("marque");
             $table->string("modele");
             $table->string("couleur");
-            $table->integer("annee");
+            $table->year("annee");
             $table->integer("kilometrage");
             $table->string("carosserie");
             $table->string("energie");

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;       
 
 class Vehicule extends Model
 {
@@ -17,4 +17,9 @@ class Vehicule extends Model
         "energie",
         "boite",
     ]; 
+
+    public function reparations()
+    {
+        return $this->hasMany(Reparation::class ,'vehicule_id');
+    }
 }
