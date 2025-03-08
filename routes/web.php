@@ -14,8 +14,8 @@ use App\Http\Controllers\ReparationController;
 //});
 
 Route::get('/dashboard' ,function() {
-    return view('dasboard');
-});
+    return view('dashboard');
+})->name('dashboard');
 
 Route::get('/vehicules', [VehiculeController::class, 'index'])->name('vehicules');
 Route::get('/createvehicule', [VehiculeController::class, 'createVehicule'])->name('createvehicule');

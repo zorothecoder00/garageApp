@@ -7,7 +7,7 @@
 @section('tableHeader')
 	<th>Nom</th>
 	<th>Prénom</th>
-	<th>Spécialité</th>    
+	<th>Spécialité</th>      
 @endsection()
 
 @section('tableBody')  
