@@ -1,4 +1,4 @@
-@extends('layouts.form')
+@extends('layouts.form')   
 
 @section('title' ,'Ajout des réparations')
 
