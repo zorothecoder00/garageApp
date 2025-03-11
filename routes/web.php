@@ -1,9 +1,10 @@
-<?php  
+<?php             
 
 use Illuminate\Support\Facades\Route;     
 use App\Http\Controllers\VehiculeController;
 use App\Http\Controllers\TechnicienController;
-use App\Http\Controllers\ReparationController;        
+use App\Http\Controllers\ReparationController; 
+use App\Http\Controllers\AuthController;       
 
 //Route::get('/', function () {  
 //   return view('welcome');  
@@ -13,9 +14,11 @@ use App\Http\Controllers\ReparationController;
 //  return view('vehicules');
 //});
 
+// Page d'accueil du dashboard (protégée)
 Route::get('/dashboard' ,function() {
     return view('dashboard');
 })->name('dashboard');
+
 
 Route::get('/vehicules', [VehiculeController::class, 'index'])->name('vehicules');
 Route::get('/createvehicule', [VehiculeController::class, 'createVehicule'])->name('createvehicule');
@@ -23,6 +26,7 @@ Route::post('/createvehicule', [VehiculeController::class, 'storeVehicule'])->na
 Route::get('/editvehicule/{id}', [VehiculeController::class, 'editVehicule'])->name('editvehicule');
 Route::put('/updatevehicule/{id}', [VehiculeController::class, 'updateVehicule'])->name('updatevehicule');
 Route::delete('/deletevehicule/{id}', [VehiculeController::class, 'deleteVehicule'])->name('deletevehicule');
+
   
 
 Route::get('/techniciens' ,[TechnicienController::class ,'index'])->name('techniciens');
@@ -31,6 +35,7 @@ Route::post('/createtechnicien' ,[TechnicienController::class ,'storeTechnicien'
 Route::get('/edittechnicien/{id}', [TechnicienController::class, 'editTechnicien'])->name('edittechnicien');
 Route::put('/updatetechnicien/{id}', [TechnicienController::class, 'updateTechnicien'])->name('updatetechnicien');
 Route::delete('/deletetechnicien/{id}', [TechnicienController::class, 'deleteTechnicien'])->name('deletetechnicien'); 
+
     
 
 Route::get('/reparations' ,[ReparationController::class ,'index'])->name('reparations');
@@ -39,3 +44,14 @@ Route::post('/createreparation' ,[ReparationController::class ,'storeReparation'
 Route::get('/editreparation/{id}', [ReparationController::class, 'editReparation'])->name('editreparation');
 Route::put('/updatereparation/{id}', [ReparationController::class, 'updateReparation'])->name('updatereparation');
 Route::delete('/deletereparation/{id}', [ReparationController::class, 'deleteReparation'])->name('deletereparation');
+
+
+
+// Routes d'authentification
+Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');

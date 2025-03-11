@@ -13,7 +13,7 @@
 @endsection()
 
 @section('tableBody')
-
+ 
 	@foreach($vehicules as $vehicule)
 
 		<td>{{ $vehicule->immatriculation }}</td>
@@ -25,7 +25,7 @@
 		    {{-- Bouton Modifier --}}
 		    <a href="{{ route('updatevehicule', $vehicule->id) }}" class="btn btn-warning btn-sm">Modifier</a>
 
-		    {{-- Bouton Supprimer avec formulaire --}}
+		    {{-- Bouton Supprimer avec formulaire --}} 
 		    <form action="{{ route('deletevehicule', $vehicule->id) }}" method="POST" style="display:inline;">
 		        @csrf
 		        @method('DELETE')

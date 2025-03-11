@@ -19,7 +19,7 @@
                     <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownTechniciens" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Techniciens</a>
                     <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownTechniciens">
-                        <li><a class="dropdown-item text-black" href="{{ route('techniciens') }}" >Nos techniciens</a></li>
+                        <li><a class="dropdown-item text-black" href="{{ route('techniciens') }}">Nos techniciens</a></li>
                         <li><a class="dropdown-item text-black" href="{{ route('createtechnicien') }}">Ajouter un technicien</a></li>
                     </ul>
                 </li>
@@ -46,19 +46,31 @@
         </nav>
 
         <!-- Contenu principal -->
-        <main class="p-4" style="width: 1200px; background-color: blueviolet; overflow-x: hidden;">
-            <div class="d-flex">
-                <div class="row" style="width: 1000px;">
-                    
-                </div>
-
-                <div class="row" style="width: 1000px;">
-                    
-                </div>
+        <main class="p-4" style="width: 1200px; background-color: white; overflow-x: hidden;">
+            <!-- Barre d'authentification -->
+            <div class="d-flex justify-content-between align-items-center mb-3" style="margin-left: 75%;">
+                @auth
+                    <span class="text-white">Bienvenue, {{ Auth::user()->name }} !</span>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Se déconnecter</button>
+                    </form>
+                @else
+                    <div>
+                        <a href="{{ route('login') }}" class="btn btn-light" style="background-color: important">Se connecter</a>
+                        <a href="{{ route('register') }}" class="btn btn-success">S'inscrire</a>
+                    </div>
+                @endauth
             </div>
+
+            <div class="d-flex">
+                <div class="row" style="width: 1000px;"></div>
+                <div class="row" style="width: 1000px;"></div>
+            </div>
+
             @yield('content')
         </main>
-    </div>
+    </div>  
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

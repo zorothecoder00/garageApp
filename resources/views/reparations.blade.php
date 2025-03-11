@@ -1,4 +1,4 @@
-@extends('layouts.list')
+@extends('layouts.list') 
 
 @section('title' ,'Liste des Réparations')
 
