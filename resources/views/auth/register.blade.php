@@ -1,8 +1,8 @@
 @extends('layouts.form')
 
-@section('title', 'Se connecter')
-@section('formTitle', 'Connexion')
-@section('formAction', route('login'))
+@section('title', 'Créer un compte')
+@section('formTitle', 'Inscription')
+@section('formAction', route('register'))
 
 @section('formFields')
     @if(session('success'))
@@ -20,6 +20,11 @@
     @endif
 
     <div class="col-12">
+        <label for="name" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+
+    <div class="col-12">
         <label for="email" class="form-label">Adresse e-mail</label>
         <input type="email" class="form-control" id="email" name="email" required>
     </div>
@@ -28,9 +33,14 @@
         <label for="password" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="password" name="password" required>
     </div>
+
+    <div class="col-12">
+        <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+    </div>
 @endsection
 
-@section('buttonText', 'Se connecter')
+@section('buttonText', 'S\'inscrire')
 
 @section('formMethod')
 @endsection
